@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Jogo de Perguntas de Múltipla Escolha</title>
+  <style>
+      body {
+        font-family: "cambria", sans-serif;
+      background-color: #a8bf8c;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .question-container {
+      max-width: 600px;
+      text-align: center;
+      background-color: #fffcf8;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #405230;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .options li {
+      margin: 10px 0;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #405230;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #01800a;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="question-container">
+    <h1>Pergunta 1: Nivel Fácil</h1>
+    <p>Qual das seguintes frases contém uma oração coordenada adversativa?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta1" value="R1" /> Ele gosta de pizza e hambúrguer.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta1" value="R2" /> Ela estava cansada, mas continuou a trabalhar.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta1" value="R3" /> O céu estava nublado, portanto não saímos.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta1" value="R4" /> João foi à escola, embora estivesse chovendo.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta1()">Verificar Resposta</button>
+    <br />
+    <p id="resultado1"></p>
+    <br />
+  </div>
+ 
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 2: Nivel Fácil</h1>
+    <p>Na frase "Ela estuda muito, pois quer passar no vestibular", a oração "pois quer passar no vestibular" é coordenada:</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta2" value="R1" /> assindética.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta2" value="R2" /> sindética copulativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta2" value="R3" /> sindética adversativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta2" value="R4" /> sindética conclusiva.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta2()">Verificar Resposta</button>
+    <p id="resultado2"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 3: Nivel Fácil</h1>
+    <p>Qual das seguintes conjunções coordenativas indica uma ideia de adição?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta3" value="R1" /> ou</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta3" value="R2" /> e</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta3" value="R3" /> mas</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta3" value="R4" /> nem</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta3()">Verificar Resposta</button>
+    <p id="resultado3"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 4: Nivel Fácil</h1>
+    <p>Identifique a oração coordenada sindética na frase: "Eles jogaram futebol e depois foram ao cinema."</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta4" value="R1" /> Eles jogaram futebol.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta4" value="R2" /> Depois foram ao cinema.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta4" value="R3" /> Eles jogaram futebol e depois foram ao cinema.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta4()">Verificar Resposta</button>
+    <p id="resultado4"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 5: Nivel Fácil</h1>
+    <p>Na frase "Ele não gosta de matemática, nem de física", as orações coordenadas são:</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta5" value="R1" /> alternativas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta5" value="R2" /> explicativas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta5" value="R3" /> adversativas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta5" value="R4" /> conclusivas.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta5()">Verificar Resposta</button>
+    <p id="resultado5"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 6: Nivel Médio</h1>
+    <p>Qual das seguintes frases contém uma oração coordenada sindética conclusiva?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta6" value="R1" /> Ele acordou cedo, pois tinha uma reunião importante.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta6" value="R2" /> Ela foi ao mercado e comprou frutas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta6" value="R3" /> Ele estudou muito, mas não passou na prova.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta6" value="R4" /> João gosta de nadar, logo foi à piscina.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta6()">Verificar Resposta</button>
+    <p id="resultado6"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 7: Nivel Médio</h1>
+    <p>Em "Maria estudou muito, porém não conseguiu passar no exame", a conjunção "porém" indica uma relação de coordenação de que tipo entre as orações?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta7" value="R1" /> Aditiva</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta7" value="R2" /> Adversativa</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta7" value="R3" /> Conclusiva</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta7" value="R4" /> Explicativa</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta7()">Verificar Resposta</button>
+    <p id="resultado7"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 8: Nivel Médio</h1>
+    <p>Na frase "Ele gosta de música clássica, entretanto ela prefere rock", a oração "entretanto ela prefere rock" é coordenada:</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta8" value="R1" /> sindética adversativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta8" value="R2" /> assindética.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta8" value="R3" /> sindética copulativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta8" value="R4" /> sindética conclusiva.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta8()">Verificar Resposta</button>
+    <p id="resultado8"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 9: Nivel Médio</h1>
+    <p>Qual das seguintes conjunções coordenativas indica uma ideia de oposição?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta9" value="R1" /> e</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta9" value="R2" /> ou</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta9" value="R3" /> porque</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta9" value="R4" /> mas</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta9()">Verificar Resposta</button>
+    <p id="resultado9"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 10: Nivel Médio</h1>
+    <p>Em "Ela estava cansada, contudo decidiu continuar trabalhando", a conjunção "contudo" indica uma relação de coordenação de que tipo entre as orações?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta10" value="R1" /> Aditiva</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta10" value="R2" /> Adversativa</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta10" value="R3" /> Conclusiva</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta10" value="R4" /> Explicativa</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta10()">Verificar Resposta</button>
+    <p id="resultado10"></p>
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 11: Nivel Intermediário</h1>
+    <p>Em "Ela estava cansada, no entanto decidiu continuar trabalhando", a conjunção "no entanto" indica uma relação de coordenação de que tipo entre as orações?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta11" value="R1" /> Aditiva.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta11" value="R2" /> Adversativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta11" value="R3" /> Conclusiva.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta11" value="R4" /> Explicativa.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta11()">Verificar Resposta</button>
+    <br />
+    <p id="resultado11"></p>
+    <br />
+  </div>
+
+  <div class="question-container"  style="display: none">
+    <h1>Pergunta 12: Nivel Intermediário</h1>
+    <p>Na frase "Ele gosta de sorvete e bolo", a oração "ele gosta de sorvete" é coordenada:</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta12" value="R1" /> Assindética.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta12" value="R2" /> Sindética copulativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta12" value="R3" /> Sindética adversativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta12" value="R4" /> Sindética conclusiva.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta12()">Verificar Resposta</button>
+    <br />
+    <p id="resultado12"></p>
+    <br />
+  </div>
+
+  <div class="question-container"  style="display: none">
+    <h1>Pergunta 13: Nivel Difícil</h1>
+    <p>Qual das seguintes conjunções coordenativas indica uma ideia de alternância?</p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta13" value="R1" /> E.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta13" value="R2" /> Ou .</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta13" value="R3" /> Mas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta13" value="R4" /> Nem.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta13()">Verificar Resposta</button>
+    <br />
+    <p id="resultado13"></p>
+    <br />
+  </div>
+
+  
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 14: Nivel Difícil</h1>
+    <p>Identifique a oração coordenada sindética na frase: "Ela riu e aplaudiu a performance."
+    </p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta14" value="R1" /> ela riu</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta14" value="R2" /> Aplaudiu a performance.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta14" value="R3" /> Ela riu e aplaudiu a performance.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta14()">Verificar Resposta</button>
+    <br />
+    <p id="resultado14"></p>
+    <br />
+  </div>
+
+  <div class="question-container"  style="display: none">
+    <h1>Pergunta 15: Nivel Difícil</h1>
+    <p>Na frase "Eles dançaram salsa, mas preferiam bachata", as orações coordenadas são:"
+    </p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta15" value="R1" /> alternativas</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta15" value="R2" /> explicativas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta15" value="R3" /> adversativas.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta15" value="R4" /> conclusivas.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta15()">Verificar Resposta</button>
+    <br />
+    <p id="resultado15"></p>
+    <br />
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 16: Nivel Difícil</h1>
+    <p>Qual das seguintes frases contém uma oração coordenada sindética conclusiva?"
+    </p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta16" value="R1" /> Ele terminou o livro e foi dormir.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta16" value="R2" />  Ela estudou muito, mas não passou na prova.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta16" value="R3" /> Eles jogaram futebol, portanto estavam cansados.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta16" value="R4" /> João gosta de nadar, logo foi à piscina.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta16()">Verificar Resposta</button>
+    <br />
+    <p id="resultado16"></p>
+    <br />
+  </div>
+
+  <div class="question-container" style="display: none">
+    <h1>Pergunta 17: Nivel Difícil</h1>
+    <p>Em "Ana corre todos os dias, pois gosta de se exercitar", a conjunção "pois" indica uma relação de coordenação de que tipo entre as orações?
+    </p>
+    <ul class="options">
+      <li>
+        <label><input type="radio" name="resposta17" value="R1" /> Aditiva</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta17" value="R2" /> Adversativa.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta17" value="R3" /> conclusiva.</label>
+      </li>
+      <li>
+        <label><input type="radio" name="resposta17" value="R3" /> Explicativa.</label>
+      </li>
+    </ul>
+    <br />
+    <button onclick="verificarResposta17()">Verificar Resposta</button>
+    <br />
+    <p id="resultado17"></p>
+    <br />
+  </div>
+  <br>
+  <button class="start-button" onclick="voltarParaPaginaInicial()">Voltar para o início</button>
+
+
+  <script>
+    var perguntaAtual = 1;
+
+    function proximaPergunta() {
+      // Oculta a pergunta atual
+      var perguntaAtualElement = document.querySelector('.question-container:nth-child(' + perguntaAtual + ')');
+      perguntaAtualElement.style.display = 'none';
+
+      // Atualiza a pergunta atual
+      perguntaAtual++;
+
+      // Exibe a próxima pergunta
+      var proximaPerguntaElement = document.querySelector('.question-container:nth-child(' + perguntaAtual + ')');
+      proximaPerguntaElement.style.display = 'block';
+    }
+
+    function verificarResposta1() {
+      var resposta = document.querySelector('input[name="resposta1"]:checked');
+      var resultado = document.getElementById("resultado1");
+      var botaoprox =
+        '<p><button id="proximaPergunta1" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R2") {
+          resultado.innerHTML = `Correto! A oração coordenada adversativa é "Ela estava cansada, mas continuou a trabalhar" porque a conjunção "mas" indica oposição ou contraste entre as duas ideias expressas pelas orações. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta2() {
+      var resposta = document.querySelector('input[name="resposta2"]:checked');
+      var resultado = document.getElementById("resultado2");
+      var botaoprox =
+        '<p><button id="proximaPergunta2" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R4") {
+          resultado.innerHTML = `Correto! A oração coordenada na frase "Ela estuda muito, pois quer passar no vestibular" é sindética conclusiva, porque a conjunção "pois" indica uma relação de conclusão entre as duas orações. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta3() {
+      var resposta = document.querySelector('input[name="resposta3"]:checked');
+      var resultado = document.getElementById("resultado3");
+      var botaoprox =
+        '<p><button id="proximaPergunta3" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R2") {
+          resultado.innerHTML = `Correto! A conjunção "e" indica uma ideia de adição, pois une elementos semelhantes. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta4() {
+      var resposta = document.querySelector('input[name="resposta4"]:checked');
+      var resultado = document.getElementById("resultado4");
+      var botaoprox =
+        '<p><button id="proximaPergunta4" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R3") {
+          resultado.innerHTML = `Correto! A oração coordenada sindética na frase "Eles jogaram futebol e depois foram ao cinema" é "Eles jogaram futebol e depois foram ao cinema", pois a conjunção "e" indica uma ideia de adição. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta5() {
+      var resposta = document.querySelector('input[name="resposta5"]:checked');
+      var resultado = document.getElementById("resultado5");
+      var botaoprox =
+        '<p><button id="proximaPergunta5" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R1") {
+          resultado.innerHTML = `Correto! As orações coordenadas na frase "Ele não gosta de matemática, nem de física" são alternativas, pois a conjunção "nem" indica exclusão. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c 00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta6() {
+      var resposta = document.querySelector('input[name="resposta6"]:checked');
+      var resultado = document.getElementById("resultado6");
+      var botaoprox =
+        '<p><button id="proximaPergunta6" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R4") {
+          resultado.innerHTML = `Correto! A oração coordenada sindética conclusiva está na frase "João gosta de nadar, logo foi à piscina" porque a conjunção "logo" indica uma relação de conclusão entre as duas orações. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta7() {
+      var resposta = document.querySelector('input[name="resposta7"]:checked');
+      var resultado = document.getElementById("resultado7");
+      var botaoprox =
+        '<p><button id="proximaPergunta7" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R2") {
+          resultado.innerHTML = `Correto! Em "Maria estudou muito, porém não conseguiu passar no exame", a conjunção "porém" indica uma relação de coordenação adversativa entre as orações. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta8() {
+      var resposta = document.querySelector('input[name="resposta8"]:checked');
+      var resultado = document.getElementById("resultado8");
+      var botaoprox =
+        '<p><button id="proximaPergunta8" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R1") {
+          resultado.innerHTML = `Correto! A oração coordenada sindética na frase "Ele gosta de música clássica, entretanto ela prefere rock" é "entretanto ela prefere rock", e essa oração é adversativa. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta9() {
+      var resposta = document.querySelector('input[name="resposta9"]:checked');
+      var resultado = document.getElementById("resultado9");
+      var botaoprox =
+        '<p><button id="proximaPergunta9" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R4") {
+          resultado.innerHTML = `Correto! A conjunção "mas" indica uma ideia de oposição entre as orações coordenadas. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+
+    function verificarResposta10() {
+      var resposta = document.querySelector('input[name="resposta10"]:checked');
+      var resultado = document.getElementById("resultado10");
+      var botaoprox =
+        '<p><button id="proximaPergunta10" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R2") {
+          resultado.innerHTML = `Correto! Em "Ela estava cansada, contudo decidiu continuar trabalhando", a conjunção "contudo" indica uma relação de coordenação adversativa entre as orações. Parabéns, você concluiu o quiz! ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta11() {
+      var resposta = document.querySelector('input[name="resposta11"]:checked');
+      var resultado = document.getElementById("resultado11");
+      var botaoprox =
+        '<p><button id="proximaPergunta11" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R2") {
+          resultado.innerHTML = `Correto! A conjunção "no entanto" indica uma relação de oposição ou contraste entre as duas ideias expressas pelas orações. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta12() {
+      var resposta = document.querySelector('input[name="resposta12"]:checked');
+      var resultado = document.getElementById("resultado12");
+      var botaoprox =
+        '<p><button id="proximaPergunta12" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R1") {
+          resultado.innerHTML = `Correto! Nesse caso, não há conjunção coordenativa entre as orações "ele gosta de sorvete" e "bolo". Elas estão simplesmente ligadas, indicando uma ideia de adição.. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta13() {
+      var resposta = document.querySelector('input[name="resposta13"]:checked');
+      var resultado = document.getElementById("resultado13");
+      var botaoprox =
+        '<p><button id="proximaPergunt13" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R2") {
+          resultado.innerHTML = `Correto! A conjunção "ou" indica uma ideia de alternância, sugerindo que uma das opções apresentadas é escolhida. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta14() {
+      var resposta = document.querySelector('input[name="resposta14"]:checked');
+      var resultado = document.getElementById("resultado14");
+      var botaoprox =
+        '<p><button id="proximaPergunta14" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R3") {
+          resultado.innerHTML = `Correto! Nesse caso, a conjunção "e" liga as duas ações, indicando uma ideia de adição ou soma. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta15() {
+      var resposta = document.querySelector('input[name="resposta15"]:checked');
+      var resultado = document.getElementById("resultado15");
+      var botaoprox =
+        '<p><button id="proximaPergunta15" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R3") {
+          resultado.innerHTML = `Correto! As orações "Eles dançaram salsa" e "preferiam bachata" estão em oposição, pois indicam escolhas diferentes. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta16() {
+      var resposta = document.querySelector('input[name="resposta16"]:checked');
+      var resultado = document.getElementById("resultado16");
+      var botaoprox =
+        '<p><button id="proximaPergunta16" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R4") {
+          resultado.innerHTML = `Correto! A conjunção "logo" indica uma relação de conclusão entre as duas ações. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function verificarResposta17() {
+      var resposta = document.querySelector('input[name="resposta17"]:checked');
+      var resultado = document.getElementById("resultado17");
+      var botaoprox =
+        '<p><button id="proximaPergunta17" onclick="proximaPergunta()">Próxima Pergunta</button></p>';
+
+      if (resposta) {
+        if (resposta.value === "R4") {
+          resultado.innerHTML = `Correto! A conjunção "pois" indica uma relação de causa, explicando o motivo da ação. ${botaoprox}`;
+          resultado.style.color = "#0c0";
+        } else {
+          resultado.innerHTML = `Errado! Tente novamente. ${botaoprox}`;
+          resultado.style.color = "#c00";
+        }
+      } else {
+        resultado.innerHTML = "Por favor, selecione uma resposta.";
+        resultado.style.color = "#ff9900";
+      }
+    }
+    function voltarParaPaginaInicial() {
+            window.location.href = "pginicial.html"
+    }
+  </script>
+</body>
+
+</html>
